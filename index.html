@@ -36,6 +36,117 @@
         transform: translateY(-5px);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
       }
+      /* Lightbox Styles */
+      .lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+      }
+      .lightbox.active {
+        display: flex;
+      }
+      .lightbox-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 85vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .lightbox-content img {
+        max-width: 100%;
+        max-height: 85vh;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+      }
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+        z-index: 10001;
+        transition: all 0.3s ease;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .lightbox-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: rotate(90deg);
+      }
+      .lightbox-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 50px;
+        color: white;
+        cursor: pointer;
+        z-index: 10001;
+        transition: all 0.3s ease;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .lightbox-nav:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .lightbox-prev {
+        left: 20px;
+      }
+      .lightbox-next {
+        right: 20px;
+      }
+      .lightbox-counter {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 16px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 8px 20px;
+        border-radius: 20px;
+      }
+      .lightbox-title {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px 25px;
+        border-radius: 25px;
+        text-align: center;
+        max-width: 80%;
+      }
+      .gallery-img {
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .gallery-img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
     </style>
   </head>
   <body class="bg-gray-50 font-sans">
@@ -1110,26 +1221,34 @@
                   <span>Auditorium Kampus, Gedung A Lt. 3</span>
                 </div>
               </div>
-              <div class="grid grid-cols-2 gap-2 p-4">
+              <div class="grid grid-cols-2 gap-2 p-4" data-gallery="seminar">
                 <img
-                  src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=300&fit=crop"
+                  src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop"
                   alt="Seminar HIMATIF 1"
-                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl gallery-img"
+                  data-gallery="seminar"
+                  data-title="Seminar Nasional Teknologi Informasi"
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=400&h=300&fit=crop"
+                  src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=800&h=600&fit=crop"
                   alt="Seminar HIMATIF 2"
-                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl gallery-img"
+                  data-gallery="seminar"
+                  data-title="Seminar Nasional Teknologi Informasi"
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=400&h=300&fit=crop"
+                  src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&h=600&fit=crop"
                   alt="Seminar HIMATIF 3"
-                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl gallery-img"
+                  data-gallery="seminar"
+                  data-title="Seminar Nasional Teknologi Informasi"
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=400&h=300&fit=crop"
+                  src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=600&fit=crop"
                   alt="Seminar HIMATIF 4"
-                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl gallery-img"
+                  data-gallery="seminar"
+                  data-title="Seminar Nasional Teknologi Informasi"
                 />
               </div>
             </div>
@@ -1142,26 +1261,37 @@
             class="bg-gray-50 rounded-3xl overflow-hidden shadow-lg card-hover"
           >
             <div class="grid lg:grid-cols-2 gap-0">
-              <div class="order-2 lg:order-1 grid grid-cols-2 gap-2 p-4">
+              <div
+                class="order-2 lg:order-1 grid grid-cols-2 gap-2 p-4"
+                data-gallery="workshop"
+              >
                 <img
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=300&fit=crop"
+                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop"
                   alt="Workshop HIMATIF 1"
-                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl gallery-img"
+                  data-gallery="workshop"
+                  data-title="Workshop Web Development Bootcamp"
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=300&fit=crop"
+                  src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop"
                   alt="Workshop HIMATIF 2"
-                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl gallery-img"
+                  data-gallery="workshop"
+                  data-title="Workshop Web Development Bootcamp"
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop"
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
                   alt="Workshop HIMATIF 3"
-                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl gallery-img"
+                  data-gallery="workshop"
+                  data-title="Workshop Web Development Bootcamp"
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop"
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop"
                   alt="Workshop HIMATIF 4"
-                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl gallery-img"
+                  data-gallery="workshop"
+                  data-title="Workshop Web Development Bootcamp"
                 />
               </div>
               <div
@@ -1258,26 +1388,34 @@
                   <span>Panti Asuhan Kasih Ibu</span>
                 </div>
               </div>
-              <div class="grid grid-cols-2 gap-2 p-4">
+              <div class="grid grid-cols-2 gap-2 p-4" data-gallery="baksos">
                 <img
-                  src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=300&fit=crop"
+                  src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=600&fit=crop"
                   alt="Baksos HIMATIF 1"
-                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl gallery-img"
+                  data-gallery="baksos"
+                  data-title="HIMATIF Charity: Bakti Sosial"
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=400&h=300&fit=crop"
+                  src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&h=600&fit=crop"
                   alt="Baksos HIMATIF 2"
-                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl gallery-img"
+                  data-gallery="baksos"
+                  data-title="HIMATIF Charity: Bakti Sosial"
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400&h=300&fit=crop"
+                  src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&h=600&fit=crop"
                   alt="Baksos HIMATIF 3"
-                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl gallery-img"
+                  data-gallery="baksos"
+                  data-title="HIMATIF Charity: Bakti Sosial"
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&h=300&fit=crop"
+                  src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&h=600&fit=crop"
                   alt="Baksos HIMATIF 4"
-                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl gallery-img"
+                  data-gallery="baksos"
+                  data-title="HIMATIF Charity: Bakti Sosial"
                 />
               </div>
             </div>
@@ -1409,6 +1547,22 @@
       </div>
     </footer>
 
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+      <div class="lightbox-title" id="lightbox-title"></div>
+      <span class="lightbox-close" id="lightbox-close">&times;</span>
+      <span class="lightbox-nav lightbox-prev" id="lightbox-prev">
+        <i class="fas fa-chevron-left"></i>
+      </span>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="Gallery Image" />
+      </div>
+      <span class="lightbox-nav lightbox-next" id="lightbox-next">
+        <i class="fas fa-chevron-right"></i>
+      </span>
+      <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+
     <!-- Mobile Menu Script -->
     <script>
       const mobileMenuBtn = document.getElementById("mobile-menu-btn");
@@ -1435,6 +1589,119 @@
           nav.classList.remove("shadow-lg");
         }
       });
+
+      // Lightbox Gallery Script
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxTitle = document.getElementById("lightbox-title");
+      const lightboxCounter = document.getElementById("lightbox-counter");
+      const lightboxClose = document.getElementById("lightbox-close");
+      const lightboxPrev = document.getElementById("lightbox-prev");
+      const lightboxNext = document.getElementById("lightbox-next");
+
+      let currentGallery = [];
+      let currentIndex = 0;
+
+      // Get all gallery images
+      const galleryImages = document.querySelectorAll(".gallery-img");
+
+      galleryImages.forEach((img) => {
+        img.addEventListener("click", function () {
+          const galleryName = this.dataset.gallery;
+          const title = this.dataset.title;
+
+          // Get all images from the same gallery
+          currentGallery = Array.from(
+            document.querySelectorAll(`img[data-gallery="${galleryName}"]`)
+          );
+          currentIndex = currentGallery.indexOf(this);
+
+          openLightbox(title);
+        });
+      });
+
+      function openLightbox(title) {
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+        updateLightbox(title);
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      function updateLightbox(title) {
+        const img = currentGallery[currentIndex];
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxTitle.textContent = title || img.dataset.title;
+        lightboxCounter.textContent = `${currentIndex + 1} / ${
+          currentGallery.length
+        }`;
+      }
+
+      function nextImage() {
+        currentIndex = (currentIndex + 1) % currentGallery.length;
+        updateLightbox();
+      }
+
+      function prevImage() {
+        currentIndex =
+          (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+        updateLightbox();
+      }
+
+      // Event Listeners
+      lightboxClose.addEventListener("click", closeLightbox);
+      lightboxNext.addEventListener("click", nextImage);
+      lightboxPrev.addEventListener("click", prevImage);
+
+      // Close on background click
+      lightbox.addEventListener("click", function (e) {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      // Keyboard navigation
+      document.addEventListener("keydown", function (e) {
+        if (!lightbox.classList.contains("active")) return;
+
+        if (e.key === "Escape") {
+          closeLightbox();
+        } else if (e.key === "ArrowRight") {
+          nextImage();
+        } else if (e.key === "ArrowLeft") {
+          prevImage();
+        }
+      });
+
+      // Touch/Swipe support for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      lightbox.addEventListener("touchstart", function (e) {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+
+      lightbox.addEventListener("touchend", function (e) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      });
+
+      function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+          if (diff > 0) {
+            nextImage(); // Swipe left = next
+          } else {
+            prevImage(); // Swipe right = prev
+          }
+        }
+      }
     </script>
   </body>
 </html>
