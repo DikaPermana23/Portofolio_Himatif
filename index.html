@@ -46,67 +46,89 @@
         height: 100%;
         background: rgba(0, 0, 0, 0.95);
         z-index: 9999;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
       }
       .lightbox.active {
         display: flex;
       }
+      .lightbox-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 24px;
+        background: rgba(0, 0, 0, 0.8);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .lightbox-title {
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex: 1;
+        padding-right: 20px;
+      }
+      .lightbox-close {
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        flex-shrink: 0;
+      }
+      .lightbox-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .lightbox-body {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 20px;
+      }
       .lightbox-content {
         position: relative;
-        max-width: 90%;
-        max-height: 85vh;
+        max-width: 100%;
+        max-height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
       }
       .lightbox-content img {
         max-width: 100%;
-        max-height: 85vh;
+        max-height: calc(100vh - 160px);
         object-fit: contain;
         border-radius: 8px;
         box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
-      }
-      .lightbox-close {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 40px;
-        color: white;
-        cursor: pointer;
-        z-index: 10001;
-        transition: all 0.3s ease;
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
-      }
-      .lightbox-close:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: rotate(90deg);
       }
       .lightbox-nav {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        font-size: 50px;
+        font-size: 24px;
         color: white;
         cursor: pointer;
         z-index: 10001;
         transition: all 0.3s ease;
-        width: 60px;
-        height: 60px;
+        width: 48px;
+        height: 48px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.15);
       }
       .lightbox-nav:hover {
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.25);
       }
       .lightbox-prev {
         left: 20px;
@@ -114,30 +136,16 @@
       .lightbox-next {
         right: 20px;
       }
-      .lightbox-counter {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        color: white;
-        font-size: 16px;
-        background: rgba(0, 0, 0, 0.5);
-        padding: 8px 20px;
-        border-radius: 20px;
+      .lightbox-footer {
+        display: flex;
+        justify-content: center;
+        padding: 12px 24px;
+        background: rgba(0, 0, 0, 0.8);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
       }
-      .lightbox-title {
-        position: absolute;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        color: white;
-        font-size: 18px;
-        font-weight: 600;
-        background: rgba(0, 0, 0, 0.5);
-        padding: 10px 25px;
-        border-radius: 25px;
-        text-align: center;
-        max-width: 80%;
+      .lightbox-counter {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 14px;
       }
       .gallery-img {
         cursor: pointer;
@@ -146,6 +154,22 @@
       .gallery-img:hover {
         transform: scale(1.03);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+      @media (max-width: 640px) {
+        .lightbox-nav {
+          width: 40px;
+          height: 40px;
+          font-size: 20px;
+        }
+        .lightbox-prev {
+          left: 10px;
+        }
+        .lightbox-next {
+          right: 10px;
+        }
+        .lightbox-title {
+          font-size: 14px;
+        }
       }
     </style>
   </head>
@@ -1549,18 +1573,31 @@
 
     <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox">
-      <div class="lightbox-title" id="lightbox-title"></div>
-      <span class="lightbox-close" id="lightbox-close">&times;</span>
-      <span class="lightbox-nav lightbox-prev" id="lightbox-prev">
-        <i class="fas fa-chevron-left"></i>
-      </span>
-      <div class="lightbox-content">
-        <img id="lightbox-img" src="" alt="Gallery Image" />
+      <!-- Header -->
+      <div class="lightbox-header">
+        <h3 class="lightbox-title" id="lightbox-title"></h3>
+        <span class="lightbox-close" id="lightbox-close">
+          <i class="fas fa-times"></i>
+        </span>
       </div>
-      <span class="lightbox-nav lightbox-next" id="lightbox-next">
-        <i class="fas fa-chevron-right"></i>
-      </span>
-      <div class="lightbox-counter" id="lightbox-counter"></div>
+
+      <!-- Body -->
+      <div class="lightbox-body">
+        <span class="lightbox-nav lightbox-prev" id="lightbox-prev">
+          <i class="fas fa-chevron-left"></i>
+        </span>
+        <div class="lightbox-content">
+          <img id="lightbox-img" src="" alt="Gallery Image" />
+        </div>
+        <span class="lightbox-nav lightbox-next" id="lightbox-next">
+          <i class="fas fa-chevron-right"></i>
+        </span>
+      </div>
+
+      <!-- Footer -->
+      <div class="lightbox-footer">
+        <span class="lightbox-counter" id="lightbox-counter"></span>
+      </div>
     </div>
 
     <!-- Mobile Menu Script -->
@@ -1659,7 +1696,10 @@
 
       // Close on background click
       lightbox.addEventListener("click", function (e) {
-        if (e.target === lightbox) {
+        if (
+          e.target === lightbox ||
+          e.target.classList.contains("lightbox-body")
+        ) {
           closeLightbox();
         }
       });
