@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HIMATIF - Himpunan Mahasiswa Teknik Informatika</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1e3a5f",
+              secondary: "#3b82f6",
+              accent: "#0ea5e9",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .gradient-bg {
+        background: linear-gradient(135deg, #1e3a5f 0%, #3b82f6 100%);
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4">
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center"
+            >
+              <span class="text-white font-bold text-lg">H</span>
+            </div>
+            <span class="text-xl font-bold text-primary">HIMATIF</span>
+          </div>
+          <!-- Mobile menu button -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden p-2 rounded-lg hover:bg-gray-100"
+          >
+            <i class="fas fa-bars text-primary text-xl"></i>
+          </button>
+          <!-- Desktop menu -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#beranda"
+              class="text-gray-600 hover:text-primary transition"
+              >Beranda</a
+            >
+            <a
+              href="#tentang"
+              class="text-gray-600 hover:text-primary transition"
+              >Tentang</a
+            >
+            <a
+              href="#struktur"
+              class="text-gray-600 hover:text-primary transition"
+              >Struktur</a
+            >
+            <a
+              href="#proker"
+              class="text-gray-600 hover:text-primary transition"
+              >Program Kerja</a
+            >
+            <a
+              href="#kontak"
+              class="text-gray-600 hover:text-primary transition"
+              >Kontak</a
+            >
+          </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4">
+          <div class="flex flex-col space-y-3">
+            <a
+              href="#beranda"
+              class="text-gray-600 hover:text-primary transition py-2"
+              >Beranda</a
+            >
+            <a
+              href="#tentang"
+              class="text-gray-600 hover:text-primary transition py-2"
+              >Tentang</a
+            >
+            <a
+              href="#struktur"
+              class="text-gray-600 hover:text-primary transition py-2"
+              >Struktur</a
+            >
+            <a
+              href="#proker"
+              class="text-gray-600 hover:text-primary transition py-2"
+              >Program Kerja</a
+            >
+            <a
+              href="#kontak"
+              class="text-gray-600 hover:text-primary transition py-2"
+              >Kontak</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="beranda"
+      class="gradient-bg min-h-screen flex items-center pt-16"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="text-white">
+            <span
+              class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm mb-6"
+            >
+              Selamat Datang di
+            </span>
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+            >
+              HIMATIF
+            </h1>
+            <p class="text-xl md:text-2xl text-blue-100 mb-4">
+              Himpunan Mahasiswa Teknik Informatika
+            </p>
+            <p class="text-blue-200 mb-8 leading-relaxed">
+              Wadah bagi mahasiswa Program Studi Teknik Informatika Universitas
+              Buana Perjuangan Karawang untuk mengembangkan potensi akademik,
+              keilmuan, serta membangun soft skills sambil menyuarakan aspirasi
+              mahasiswa ke pihak jurusan atau fakultas.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="#struktur"
+                class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition"
+              >
+                Lihat Struktur
+              </a>
+              <a
+                href="#proker"
+                class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
+              >
+                Program Kerja
+              </a>
+            </div>
+          </div>
+          <div class="hidden md:flex justify-center">
+            <div class="relative">
+              <div
+                class="w-72 h-72 lg:w-96 lg:h-96 bg-white/10 rounded-full flex items-center justify-center"
+              >
+                <div
+                  class="w-56 h-56 lg:w-72 lg:h-72 bg-white/20 rounded-full flex items-center justify-center"
+                >
+                  <div class="text-center">
+                    <i
+                      class="fas fa-laptop-code text-6xl lg:text-8xl text-white mb-4"
+                    ></i>
+                    <p class="text-white font-semibold">Teknik Informatika</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tentang Section -->
+    <section id="tentang" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-secondary font-semibold">Tentang Kami</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2">
+            Mengenal HIMATIF
+          </h2>
+          <div class="w-20 h-1 bg-secondary mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 items-stretch">
+          <!-- Visi -->
+          <div
+            class="bg-gradient-to-br from-primary to-secondary rounded-2xl p-8 md:p-10 text-white card-hover flex flex-col justify-center min-h-[400px]"
+          >
+            <div class="flex items-center gap-4 mb-8">
+              <div
+                class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center"
+              >
+                <i class="fas fa-eye text-2xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold">Visi</h3>
+            </div>
+            <p
+              class="text-xl md:text-2xl leading-relaxed text-white font-medium"
+            >
+              "Universitas Buana Perjuangan Karawang Berwawasan Kebangsaan dan
+              Bereputasi Internasional"
+            </p>
+            <div class="mt-8 pt-6 border-t border-white/20"></div>
+          </div>
+
+          <!-- Misi -->
+          <div class="bg-gray-50 rounded-2xl p-8 md:p-10 card-hover">
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center"
+              >
+                <i class="fas fa-rocket text-2xl text-secondary"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-800">Misi</h3>
+            </div>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <div
+                  class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                >
+                  <span class="text-white text-xs font-bold">1</span>
+                </div>
+                <p class="text-gray-600 leading-relaxed">
+                  Melaksanakan pembinaan dan pengembangan sumber daya manusia
+                  yang berwawasan kebangsaan
+                </p>
+              </li>
+              <li class="flex items-start gap-3">
+                <div
+                  class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                >
+                  <span class="text-white text-xs font-bold">2</span>
+                </div>
+                <p class="text-gray-600 leading-relaxed">
+                  Mengembangkan ekosistem pendidikan, pengajaran dan penelitian
+                  untuk menghasilkan karya nyata yang berkontribusi kepada
+                  masyarakat
+                </p>
+              </li>
+              <li class="flex items-start gap-3">
+                <div
+                  class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                >
+                  <span class="text-white text-xs font-bold">3</span>
+                </div>
+                <p class="text-gray-600 leading-relaxed">
+                  Melakukan adaptasi dan inovasi dalam menghadapi perkembangan
+                  teknologi informasi
+                </p>
+              </li>
+              <li class="flex items-start gap-3">
+                <div
+                  class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                >
+                  <span class="text-white text-xs font-bold">4</span>
+                </div>
+                <p class="text-gray-600 leading-relaxed">
+                  Meningkatkan kerjasama dengan berbagai institusi nasional dan
+                  internasional
+                </p>
+              </li>
+              <li class="flex items-start gap-3">
+                <div
+                  class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                >
+                  <span class="text-white text-xs font-bold">5</span>
+                </div>
+                <p class="text-gray-600 leading-relaxed">
+                  Meningkatkan sarana dan prasarana pendidikan yang relevan dan
+                  mutakhir
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Struktur Organisasi -->
+    <section id="struktur" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-secondary font-semibold">Tim Kami</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2">
+            Struktur Organisasi
+          </h2>
+          <div class="w-20 h-1 bg-secondary mx-auto mt-4"></div>
+          <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+            Kepengurusan HIMATIF Periode 2024/2025
+          </p>
+        </div>
+
+        <!-- Dosen Pembina -->
+        <div class="flex justify-center mb-12">
+          <div
+            class="bg-white rounded-2xl shadow-lg p-6 text-center card-hover max-w-sm w-full"
+          >
+            <div
+              class="w-24 h-24 bg-gradient-to-br from-primary to-secondary rounded-full mx-auto mb-4 flex items-center justify-center"
+            >
+              <i class="fas fa-user-tie text-3xl text-white"></i>
+            </div>
+            <span
+              class="inline-block px-3 py-1 bg-primary/10 text-primary text-sm rounded-full mb-3"
+            >
+              Dosen Pembina
+            </span>
+            <h3 class="text-xl font-bold text-gray-800">Iman Sanjaya, M.Kom</h3>
+            <p class="text-gray-500 text-sm mt-2">
+              <i class="fas fa-envelope mr-2"></i>iman.sanjaya@email.ac.id
+            </p>
+            <p class="text-gray-500 text-sm mt-1">
+              <i class="fas fa-phone mr-2"></i>+62 812-XXXX-XXXX
+            </p>
+          </div>
+        </div>
+
+        <!-- Ketua -->
+        <div class="flex justify-center mb-8">
+          <div
+            class="bg-white rounded-2xl shadow-lg p-6 text-center card-hover max-w-sm w-full border-t-4 border-secondary"
+          >
+            <div
+              class="w-24 h-24 bg-gradient-to-br from-secondary to-accent rounded-full mx-auto mb-4 flex items-center justify-center"
+            >
+              <i class="fas fa-user text-3xl text-white"></i>
+            </div>
+            <span
+              class="inline-block px-3 py-1 bg-secondary/10 text-secondary text-sm rounded-full mb-3"
+            >
+              Ketua
+            </span>
+            <h3 class="text-xl font-bold text-gray-800">Fauzan Azhar</h3>
+            <p class="text-gray-500 text-sm mt-2">
+              <i class="fas fa-envelope mr-2"></i>fauzan.azhar@email.com
+            </p>
+            <p class="text-gray-500 text-sm mt-1">
+              <i class="fas fa-phone mr-2"></i>+62 813-XXXX-XXXX
+            </p>
+          </div>
+        </div>
+
+        <!-- Sekretaris & Bendahara -->
+        <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-8">
+          <div
+            class="bg-white rounded-2xl shadow-lg p-6 text-center card-hover"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full mx-auto mb-4 flex items-center justify-center"
+            >
+              <i class="fas fa-user text-2xl text-white"></i>
+            </div>
+            <span
+              class="inline-block px-3 py-1 bg-pink-100 text-pink-600 text-sm rounded-full mb-3"
+            >
+              Sekretaris
+            </span>
+            <h3 class="text-lg font-bold text-gray-800">Indah Nirmala</h3>
+            <p class="text-gray-500 text-sm mt-2">
+              <i class="fas fa-envelope mr-2"></i>indah.nirmala@email.com
+            </p>
+            <p class="text-gray-500 text-sm mt-1">
+              <i class="fas fa-phone mr-2"></i>+62 814-XXXX-XXXX
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-2xl shadow-lg p-6 text-center card-hover"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full mx-auto mb-4 flex items-center justify-center"
+            >
+              <i class="fas fa-user text-2xl text-white"></i>
+            </div>
+            <span
+              class="inline-block px-3 py-1 bg-emerald-100 text-emerald-600 text-sm rounded-full mb-3"
+            >
+              Bendahara
+            </span>
+            <h3 class="text-lg font-bold text-gray-800">Dewi Puspa</h3>
+            <p class="text-gray-500 text-sm mt-2">
+              <i class="fas fa-envelope mr-2"></i>dewi.puspa@email.com
+            </p>
+            <p class="text-gray-500 text-sm mt-1">
+              <i class="fas fa-phone mr-2"></i>+62 815-XXXX-XXXX
+            </p>
+          </div>
+        </div>
+
+        <!-- Kepala Departemen -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <!-- Kadep Akademik -->
+          <div
+            class="bg-white rounded-2xl shadow-lg p-5 text-center card-hover"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-violet-400 to-purple-500 rounded-full mx-auto mb-3 flex items-center justify-center"
+            >
+              <i class="fas fa-user text-xl text-white"></i>
+            </div>
+            <span
+              class="inline-block px-2 py-1 bg-violet-100 text-violet-600 text-xs rounded-full mb-2"
+            >
+              Kadep Akademik
+            </span>
+            <h3 class="text-base font-bold text-gray-800">Fajri Yanuar</h3>
+            <p class="text-gray-500 text-xs mt-2">
+              <i class="fas fa-envelope mr-1"></i>fajri.yanuar@email.com
+            </p>
+            <p class="text-gray-500 text-xs mt-1">
+              <i class="fas fa-phone mr-1"></i>+62 816-XXXX-XXXX
+            </p>
+          </div>
+
+          <!-- Kadep Riset dan Teknologi -->
+          <div
+            class="bg-white rounded-2xl shadow-lg p-5 text-center card-hover"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full mx-auto mb-3 flex items-center justify-center"
+            >
+              <i class="fas fa-user text-xl text-white"></i>
+            </div>
+            <span
+              class="inline-block px-2 py-1 bg-cyan-100 text-cyan-600 text-xs rounded-full mb-2"
+            >
+              Kadep Ristek
+            </span>
+            <h3 class="text-base font-bold text-gray-800">Jibrail</h3>
+            <p class="text-gray-500 text-xs mt-2">
+              <i class="fas fa-envelope mr-1"></i>jibrail@email.com
+            </p>
+            <p class="text-gray-500 text-xs mt-1">
+              <i class="fas fa-phone mr-1"></i>+62 817-XXXX-XXXX
+            </p>
+          </div>
+
+          <!-- Kadep Humas -->
+          <div
+            class="bg-white rounded-2xl shadow-lg p-5 text-center card-hover"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-orange-400 to-amber-500 rounded-full mx-auto mb-3 flex items-center justify-center"
+            >
+              <i class="fas fa-user text-xl text-white"></i>
+            </div>
+            <span
+              class="inline-block px-2 py-1 bg-orange-100 text-orange-600 text-xs rounded-full mb-2"
+            >
+              Kadep Humas
+            </span>
+            <h3 class="text-base font-bold text-gray-800">Nova Khairani</h3>
+            <p class="text-gray-500 text-xs mt-2">
+              <i class="fas fa-envelope mr-1"></i>nova.khairani@email.com
+            </p>
+            <p class="text-gray-500 text-xs mt-1">
+              <i class="fas fa-phone mr-1"></i>+62 818-XXXX-XXXX
+            </p>
+          </div>
+
+          <!-- Kadep MIBA -->
+          <div
+            class="bg-white rounded-2xl shadow-lg p-5 text-center card-hover"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-red-400 to-rose-500 rounded-full mx-auto mb-3 flex items-center justify-center"
+            >
+              <i class="fas fa-user text-xl text-white"></i>
+            </div>
+            <span
+              class="inline-block px-2 py-1 bg-red-100 text-red-600 text-xs rounded-full mb-2"
+            >
+              Kadep MIBA
+            </span>
+            <h3 class="text-base font-bold text-gray-800">Fadel</h3>
+            <p class="text-gray-500 text-xs mt-2">
+              <i class="fas fa-envelope mr-1"></i>fadel@email.com
+            </p>
+            <p class="text-gray-500 text-xs mt-1">
+              <i class="fas fa-phone mr-1"></i>+62 819-XXXX-XXXX
+            </p>
+          </div>
+
+          <!-- Kadep KWU -->
+          <div
+            class="bg-white rounded-2xl shadow-lg p-5 text-center card-hover"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-teal-400 to-emerald-500 rounded-full mx-auto mb-3 flex items-center justify-center"
+            >
+              <i class="fas fa-user text-xl text-white"></i>
+            </div>
+            <span
+              class="inline-block px-2 py-1 bg-teal-100 text-teal-600 text-xs rounded-full mb-2"
+            >
+              Kadep KWU
+            </span>
+            <h3 class="text-base font-bold text-gray-800">Bisma</h3>
+            <p class="text-gray-500 text-xs mt-2">
+              <i class="fas fa-envelope mr-1"></i>bisma@email.com
+            </p>
+            <p class="text-gray-500 text-xs mt-1">
+              <i class="fas fa-phone mr-1"></i>+62 820-XXXX-XXXX
+            </p>
+          </div>
+        </div>
+
+        <!-- Anggota Departemen -->
+        <div class="mt-16">
+          <div class="text-center mb-10">
+            <h3 class="text-2xl font-bold text-gray-800">Anggota Departemen</h3>
+            <p class="text-gray-600 mt-2">
+              Daftar anggota setiap departemen HIMATIF
+            </p>
+          </div>
+
+          <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            <!-- Departemen Akademik -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+              <div
+                class="bg-gradient-to-r from-violet-500 to-purple-600 px-5 py-4"
+              >
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center"
+                  >
+                    <i class="fas fa-book text-white"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-white font-bold">Departemen Akademik</h4>
+                    <p class="text-violet-200 text-sm">Kadep: Fajri Yanuar</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-4">
+                <table class="w-full">
+                  <thead>
+                    <tr class="border-b border-gray-100">
+                      <th
+                        class="text-left py-2 text-xs font-semibold text-gray-500 uppercase"
+                      >
+                        Nama
+                      </th>
+                      <th
+                        class="text-left py-2 text-xs font-semibold text-gray-500 uppercase"
+                      >
+                        Jabatan
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-50">
+                    <tr>
+                      <td class="py-3">
+                        <div class="flex items-center gap-2">
+                          <div
+                            class="w-8 h-8 bg-violet-100 rounded-full flex items-center justify-center"
+                          >
+                            <i class="fas fa-user text-violet-500 text-xs"></i>
+                          </div>
+                          <span class="text-sm font-medium text-gray-700"
+                            >Ahmad Rizky</span
+                          >
+                        </div>
+                      </td>
+                      <td class="py-3 text-sm text-gray-500">Anggota</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3">
+                        <div class="flex items-center gap-2">
+                          <div
+                            class="w-8 h-8 bg-violet-100 rounded-full flex items-center justify-center"
+                          >
+                            <i class="fas fa-user text-violet-500 text-xs"></i>
+                          </div>
+                          <span class="text-sm font-medium text-gray-700"
+                            >Siti Rahma</span
+                          >
+                        </div>
+                      </td>
+                      <td class="py-3 text-sm text-gray-500">Anggota</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3">
+                        <div class="flex items-center gap-2">
+                          <div
+                            class="w-8 h-8 bg-violet-100 rounded-full flex items-center justify-center"
+                          >
+                            <i class="fas fa-user text-violet-500 text-xs"></i>
+                          </div>
+                          <span class="text-sm font-medium text-gray-700"
+                            >Dimas Pratama</span
+                          >
+                        </div>
+                      </td>
+                      <td class="py-3 text-sm text-gray-500">Anggota</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Departemen Riset dan Teknologi -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+              <div class="bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-4">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center"
+                  >
+                    <i class="fas fa-flask text-white"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-white font-bold">Departemen Ristek</h4>
+                    <p class="text-cyan-200 text-sm">Kadep: Jibrail</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-4">
+                <table class="w-full">
+                  <thead>
+                    <tr class="border-b border-gray-100">
+                      <th
+                        class="text-left py-2 text-xs font-semibold text-gray-500 uppercase"
+                      >
+                        Nama
+                      </th>
+                      <th
+                        class="text-left py-2 text-xs font-semibold text-gray-500 uppercase"
+                      >
+                        Jabatan
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-50">
+                    <tr>
+                      <td class="py-3">
+                        <div class="flex items-center gap-2">
+                          <div
+                            class="w-8 h-8 bg-cyan-100 rounded-full flex items-center justify-center"
+                          >
+                            <i class="fas fa-user text-cyan-500 text-xs"></i>
+                          </div>
+                          <span class="text-sm font-medium text-gray-700"
+                            >Rafi Ananda</span
+                          >
+                        </div>
+                      </td>
+                      <td class="py-3 text-sm text-gray-500">Anggota</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3">
+                        <div class="flex items-center gap-2">
+                          <div
+                            class="w-8 h-8 bg-cyan-100 rounded-full flex items-center justify-center"
+                          >
+                            <i class="fas fa-user text-cyan-500 text-xs"></i>
+                          </div>
+                          <span class="text-sm font-medium text-gray-700"
+                            >Nadia Safitri</span
+                          >
+                        </div>
+                      </td>
+                      <td class="py-3 text-sm text-gray-500">Anggota</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3">
+                        <div class="flex items-center gap-2">
+                          <div
+                            class="w-8 h-8 bg-cyan-100 rounded-full flex items-center justify-center"
+                          >
+                            <i class="fas fa-user text-cyan-500 text-xs"></i>
+                          </div>
+                          <span class="text-sm font-medium text-gray-700"
+                            >Bayu Saputra</span
+                          >
+                        </div>
+                      </td>
+                      <td class="py-3 text-sm text-gray-500">Anggota</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Departemen Humas -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+              <div
+                class="bg-gradient-to-r from-orange-500 to-amber-500 px-5 py-4"
+              >
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center"
+                  >
+                    <i class="fas fa-bullhorn text-white"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-white font-bold">Departemen Humas</h4>
+                    <p class="text-orange-200 text-sm">Kadep: Nova Khairani</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-4">
+                <table class="w-full">
+                  <thead>
+                    <tr class="border-b border-gray-100">
+                      <th
+                        class="text-left py-2 text-xs font-semibold text-gray-500 uppercase"
+                      >
+                        Nama
+                      </th>
+                      <th
+                        class="text-left py-2 text-xs font-semibold text-gray-500 uppercase"
+                      >
+                        Jabatan
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-50">
+                    <tr>
+                      <td class="py-3">
+                        <div class="flex items-center gap-2">
+                          <div
+                            class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center"
+                          >
+                            <i class="fas fa-user text-orange-500 text-xs"></i>
+                          </div>
+                          <span class="text-sm font-medium text-gray-700"
+                            >Putri Ayu</span
+                          >
+                        </div>
+                      </td>
+                      <td class="py-3 text-sm text-gray-500">Anggota</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3">
+                        <div class="flex items-center gap-2">
+                          <div
+                            class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center"
+                          >
+                            <i class="fas fa-user text-orange-500 text-xs"></i>
+                          </div>
+                          <span class="text-sm font-medium text-gray-700"
+                            >Kevin Wijaya</span
+                          >
+                        </div>
+                      </td>
+                      <td class="py-3 text-sm text-gray-500">Anggota</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3">
+                        <div class="flex items-center gap-2">
+                          <div
+                            class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center"
+                          >
+                            <i class="fas fa-user text-orange-500 text-xs"></i>
+                          </div>
+                          <span class="text-sm font-medium text-gray-700"
+                            >Aisyah Zahra</span
+                          >
+                        </div>
+                      </td>
+                      <td class="py-3 text-sm text-gray-500">Anggota</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Departemen MIBA -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+              <div class="bg-gradient-to-r from-red-500 to-rose-500 px-5 py-4">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center"
+                  >
+                    <i class="fas fa-mosque text-white"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-white font-bold">Departemen MIBA</h4>
+                    <p class="text-red-200 text-sm">Kadep: Fadel</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-4">
+                <table class="w-full">
+                  <thead>
+                    <tr class="border-b border-gray-100">
+                      <th
+                        class="text-left py-2 text-xs font-semibold text-gray-500 uppercase"
+                      >
+                        Nama
+                      </th>
+                      <th
+                        class="text-left py-2 text-xs font-semibold text-gray-500 uppercase"
+                      >
+                        Jabatan
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-50">
+                    <tr>
+                      <td class="py-3">
+                        <div class="flex items-center gap-2">
+                          <div
+                            class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center"
+                          >
+                            <i class="fas fa-user text-red-500 text-xs"></i>
+                          </div>
+                          <span class="text-sm font-medium text-gray-700"
+                            >Hafiz Rahman</span
+                          >
+                        </div>
+                      </td>
+                      <td class="py-3 text-sm text-gray-500">Anggota</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3">
+                        <div class="flex items-center gap-2">
+                          <div
+                            class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center"
+                          >
+                            <i class="fas fa-user text-red-500 text-xs"></i>
+                          </div>
+                          <span class="text-sm font-medium text-gray-700"
+                            >Maryam Salsabila</span
+                          >
+                        </div>
+                      </td>
+                      <td class="py-3 text-sm text-gray-500">Anggota</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3">
+                        <div class="flex items-center gap-2">
+                          <div
+                            class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center"
+                          >
+                            <i class="fas fa-user text-red-500 text-xs"></i>
+                          </div>
+                          <span class="text-sm font-medium text-gray-700"
+                            >Ilham Maulana</span
+                          >
+                        </div>
+                      </td>
+                      <td class="py-3 text-sm text-gray-500">Anggota</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Departemen KWU -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+              <div
+                class="bg-gradient-to-r from-teal-500 to-emerald-500 px-5 py-4"
+              >
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center"
+                  >
+                    <i class="fas fa-store text-white"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-white font-bold">Departemen KWU</h4>
+                    <p class="text-teal-200 text-sm">Kadep: Bisma</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-4">
+                <table class="w-full">
+                  <thead>
+                    <tr class="border-b border-gray-100">
+                      <th
+                        class="text-left py-2 text-xs font-semibold text-gray-500 uppercase"
+                      >
+                        Nama
+                      </th>
+                      <th
+                        class="text-left py-2 text-xs font-semibold text-gray-500 uppercase"
+                      >
+                        Jabatan
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-50">
+                    <tr>
+                      <td class="py-3">
+                        <div class="flex items-center gap-2">
+                          <div
+                            class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center"
+                          >
+                            <i class="fas fa-user text-teal-500 text-xs"></i>
+                          </div>
+                          <span class="text-sm font-medium text-gray-700"
+                            >Arya Putra</span
+                          >
+                        </div>
+                      </td>
+                      <td class="py-3 text-sm text-gray-500">Anggota</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3">
+                        <div class="flex items-center gap-2">
+                          <div
+                            class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center"
+                          >
+                            <i class="fas fa-user text-teal-500 text-xs"></i>
+                          </div>
+                          <span class="text-sm font-medium text-gray-700"
+                            >Luna Maharani</span
+                          >
+                        </div>
+                      </td>
+                      <td class="py-3 text-sm text-gray-500">Anggota</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3">
+                        <div class="flex items-center gap-2">
+                          <div
+                            class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center"
+                          >
+                            <i class="fas fa-user text-teal-500 text-xs"></i>
+                          </div>
+                          <span class="text-sm font-medium text-gray-700"
+                            >Gilang Ramadhan</span
+                          >
+                        </div>
+                      </td>
+                      <td class="py-3 text-sm text-gray-500">Anggota</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Program Kerja -->
+    <section id="proker" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-secondary font-semibold">Kegiatan</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2">
+            Program Kerja
+          </h2>
+          <div class="w-20 h-1 bg-secondary mx-auto mt-4"></div>
+          <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+            Dokumentasi kegiatan yang telah dilaksanakan oleh HIMATIF
+          </p>
+        </div>
+
+        <!-- Kegiatan 1 -->
+        <div class="mb-16">
+          <div
+            class="bg-gray-50 rounded-3xl overflow-hidden shadow-lg card-hover"
+          >
+            <div class="grid lg:grid-cols-2 gap-0">
+              <div class="p-8 lg:p-12 flex flex-col justify-center">
+                <div class="flex items-center gap-3 mb-4">
+                  <span
+                    class="px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium"
+                  >
+                    <i class="fas fa-calendar-alt mr-2"></i>15 Oktober 2024
+                  </span>
+                  <span
+                    class="px-4 py-2 bg-green-100 text-green-600 rounded-full text-sm font-medium"
+                  >
+                    Selesai
+                  </span>
+                </div>
+                <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-4">
+                  Seminar Nasional Teknologi Informasi
+                </h3>
+                <p class="text-gray-600 leading-relaxed mb-6">
+                  Seminar nasional yang membahas perkembangan terbaru dalam
+                  dunia teknologi informasi, meliputi Artificial Intelligence,
+                  Machine Learning, dan Cloud Computing. Dihadiri oleh lebih
+                  dari 500 peserta dari berbagai perguruan tinggi se-Indonesia.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span
+                    class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm"
+                    >AI</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm"
+                    >Machine Learning</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-cyan-100 text-cyan-600 rounded-full text-sm"
+                    >Cloud Computing</span
+                  >
+                </div>
+                <div class="flex items-center text-gray-500 text-sm">
+                  <i class="fas fa-map-marker-alt mr-2"></i>
+                  <span>Auditorium Kampus, Gedung A Lt. 3</span>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-2 p-4">
+                <img
+                  src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=300&fit=crop"
+                  alt="Seminar HIMATIF 1"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=400&h=300&fit=crop"
+                  alt="Seminar HIMATIF 2"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=400&h=300&fit=crop"
+                  alt="Seminar HIMATIF 3"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=400&h=300&fit=crop"
+                  alt="Seminar HIMATIF 4"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kegiatan 2 -->
+        <div class="mb-16">
+          <div
+            class="bg-gray-50 rounded-3xl overflow-hidden shadow-lg card-hover"
+          >
+            <div class="grid lg:grid-cols-2 gap-0">
+              <div class="order-2 lg:order-1 grid grid-cols-2 gap-2 p-4">
+                <img
+                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=300&fit=crop"
+                  alt="Workshop HIMATIF 1"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=300&fit=crop"
+                  alt="Workshop HIMATIF 2"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop"
+                  alt="Workshop HIMATIF 3"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop"
+                  alt="Workshop HIMATIF 4"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                />
+              </div>
+              <div
+                class="order-1 lg:order-2 p-8 lg:p-12 flex flex-col justify-center"
+              >
+                <div class="flex items-center gap-3 mb-4">
+                  <span
+                    class="px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium"
+                  >
+                    <i class="fas fa-calendar-alt mr-2"></i>22-24 November 2024
+                  </span>
+                  <span
+                    class="px-4 py-2 bg-green-100 text-green-600 rounded-full text-sm font-medium"
+                  >
+                    Selesai
+                  </span>
+                </div>
+                <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-4">
+                  Workshop Web Development Bootcamp
+                </h3>
+                <p class="text-gray-600 leading-relaxed mb-6">
+                  Workshop intensif selama 3 hari yang membahas pengembangan web
+                  modern menggunakan React.js, Node.js, dan database MongoDB.
+                  Peserta diajarkan dari dasar hingga mampu membuat aplikasi web
+                  full-stack secara mandiri.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span
+                    class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm"
+                    >React.js</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm"
+                    >Node.js</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-emerald-100 text-emerald-600 rounded-full text-sm"
+                    >MongoDB</span
+                  >
+                </div>
+                <div class="flex items-center text-gray-500 text-sm">
+                  <i class="fas fa-map-marker-alt mr-2"></i>
+                  <span>Lab Komputer, Gedung B Lt. 2</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kegiatan 3 -->
+        <div>
+          <div
+            class="bg-gray-50 rounded-3xl overflow-hidden shadow-lg card-hover"
+          >
+            <div class="grid lg:grid-cols-2 gap-0">
+              <div class="p-8 lg:p-12 flex flex-col justify-center">
+                <div class="flex items-center gap-3 mb-4">
+                  <span
+                    class="px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium"
+                  >
+                    <i class="fas fa-calendar-alt mr-2"></i>5 Desember 2024
+                  </span>
+                  <span
+                    class="px-4 py-2 bg-green-100 text-green-600 rounded-full text-sm font-medium"
+                  >
+                    Selesai
+                  </span>
+                </div>
+                <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-4">
+                  HIMATIF Charity: Bakti Sosial
+                </h3>
+                <p class="text-gray-600 leading-relaxed mb-6">
+                  Kegiatan bakti sosial yang diselenggarakan dalam rangka
+                  memperingati Hari Disabilitas Internasional. HIMATIF
+                  memberikan bantuan berupa sembako dan perlengkapan sekolah
+                  kepada anak-anak di Panti Asuhan Kasih Ibu.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span
+                    class="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm"
+                    >Sosial</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-red-100 text-red-600 rounded-full text-sm"
+                    >Charity</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-sm"
+                    >Pengabdian</span
+                  >
+                </div>
+                <div class="flex items-center text-gray-500 text-sm">
+                  <i class="fas fa-map-marker-alt mr-2"></i>
+                  <span>Panti Asuhan Kasih Ibu</span>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-2 p-4">
+                <img
+                  src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=300&fit=crop"
+                  alt="Baksos HIMATIF 1"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=400&h=300&fit=crop"
+                  alt="Baksos HIMATIF 2"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400&h=300&fit=crop"
+                  alt="Baksos HIMATIF 3"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&h=300&fit=crop"
+                  alt="Baksos HIMATIF 4"
+                  class="w-full h-40 lg:h-48 object-cover rounded-xl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontak Section -->
+    <section id="kontak" class="py-20 gradient-bg">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-blue-200 font-semibold">Hubungi Kami</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">
+            Kontak HIMATIF
+          </h2>
+          <div class="w-20 h-1 bg-white mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <!-- Instagram -->
+          <a
+            href="https://www.instagram.com/himatif_ubp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            target="_blank"
+            class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/20 transition group"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition"
+            >
+              <i class="fab fa-instagram text-3xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Instagram</h3>
+            <p class="text-blue-200">himatif_ubp</p>
+          </a>
+
+          <!-- Email -->
+          <a
+            href="mailto:himatif@email.ac.id"
+            class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/20 transition group"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition"
+            >
+              <i class="fas fa-envelope text-3xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Email</h3>
+            <p class="text-blue-200">himatifubprakean@gmail.com</p>
+          </a>
+
+          <!-- Lokasi -->
+          <div
+            class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center group"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-map-marker-alt text-3xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Sekretariat</h3>
+            <p class="text-blue-200">Gedung Fakultas Teknik, Lt. 2</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <div class="md:col-span-2">
+            <div class="flex items-center space-x-3 mb-4">
+              <div
+                class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center"
+              >
+                <span class="text-white font-bold text-lg">H</span>
+              </div>
+              <span class="text-xl font-bold text-white">HIMATIF</span>
+            </div>
+            <p class="text-gray-400 leading-relaxed max-w-md">
+              Himpunan Mahasiswa Teknik Informatika adalah organisasi
+              kemahasiswaan yang bergerak dalam pengembangan akademik, riset,
+              teknologi, dan kemasyarakatan.
+            </p>
+          </div>
+          <div>
+            <h4 class="text-white font-semibold mb-4">Navigasi</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#beranda" class="hover:text-white transition"
+                  >Beranda</a
+                >
+              </li>
+              <li>
+                <a href="#tentang" class="hover:text-white transition"
+                  >Tentang</a
+                >
+              </li>
+              <li>
+                <a href="#struktur" class="hover:text-white transition"
+                  >Struktur</a
+                >
+              </li>
+              <li>
+                <a href="#proker" class="hover:text-white transition"
+                  >Program Kerja</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white font-semibold mb-4">Kontak</h4>
+            <ul class="space-y-2">
+              <li>
+                <i class="fas fa-envelope mr-2"></i>himatifubprakean@gmail.com
+              </li>
+              <li><i class="fab fa-instagram mr-2"></i>himatif_ubp</li>
+              <li>
+                <i class="fas fa-map-marker-alt mr-2"></i>Gedung FT, Lt. 2
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 text-center">
+          <p>
+            &copy; 2025 HIMATIF - Himpunan Mahasiswa Teknik Informatika. All
+            Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when clicking a link
+      const mobileLinks = mobileMenu.querySelectorAll("a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const nav = document.querySelector("nav");
+        if (window.scrollY > 50) {
+          nav.classList.add("shadow-lg");
+        } else {
+          nav.classList.remove("shadow-lg");
+        }
+      });
+    </script>
+  </body>
+</html>
