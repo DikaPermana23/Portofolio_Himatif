@@ -22,351 +22,7 @@
         },
       };
     </script>
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-      .gradient-bg {
-        background: linear-gradient(135deg, #1e3a5f 0%, #3b82f6 100%);
-      }
-      .card-hover {
-        transition: all 0.3s ease;
-      }
-      .card-hover:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      }
-      /* Lightbox Styles */
-      .lightbox {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        z-index: 9999;
-        flex-direction: column;
-      }
-      .lightbox.active {
-        display: flex;
-      }
-      .lightbox-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 16px 24px;
-        background: rgba(0, 0, 0, 0.8);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      .lightbox-title {
-        color: white;
-        font-size: 16px;
-        font-weight: 600;
-        margin: 0;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        flex: 1;
-        padding-right: 20px;
-      }
-      .lightbox-close {
-        font-size: 28px;
-        color: white;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.1);
-        flex-shrink: 0;
-      }
-      .lightbox-close:hover {
-        background: rgba(255, 255, 255, 0.2);
-      }
-      .lightbox-body {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        padding: 20px;
-      }
-      .lightbox-content {
-        position: relative;
-        max-width: 100%;
-        max-height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .lightbox-content img {
-        max-width: 100%;
-        max-height: calc(100vh - 160px);
-        object-fit: contain;
-        border-radius: 8px;
-        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
-      }
-      .lightbox-nav {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 24px;
-        color: white;
-        cursor: pointer;
-        z-index: 10001;
-        transition: all 0.3s ease;
-        width: 48px;
-        height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.15);
-      }
-      .lightbox-nav:hover {
-        background: rgba(255, 255, 255, 0.25);
-      }
-      .lightbox-prev {
-        left: 20px;
-      }
-      .lightbox-next {
-        right: 20px;
-      }
-      .lightbox-footer {
-        display: flex;
-        justify-content: center;
-        padding: 12px 24px;
-        background: rgba(0, 0, 0, 0.8);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      .lightbox-counter {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 14px;
-      }
-      .gallery-img {
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-      .gallery-img:hover {
-        transform: scale(1.03);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      }
-      /* Profile Photo Popup Styles */
-      .profile-img {
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-      .profile-img:hover {
-        transform: scale(1.1);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-      }
-      .profile-popup {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        z-index: 9999;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding: 20px;
-      }
-      .profile-popup.active {
-        display: flex;
-      }
-      .profile-popup-content {
-        position: relative;
-        text-align: center;
-        max-width: 400px;
-        animation: popupFadeIn 0.3s ease;
-      }
-      @keyframes popupFadeIn {
-        from {
-          opacity: 0;
-          transform: scale(0.8);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-      .profile-popup-img {
-        width: 250px;
-        height: 250px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid white;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        margin-bottom: 20px;
-      }
-      .profile-popup-name {
-        color: white;
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 8px;
-      }
-      .profile-popup-role {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 16px;
-        padding: 6px 16px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        display: inline-block;
-        margin-bottom: 20px;
-      }
-      .profile-popup-socials {
-        display: flex;
-        justify-content: center;
-        gap: 16px;
-        margin-top: 10px;
-      }
-      .profile-popup-socials a {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 22px;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        border: 2px solid;
-        background: transparent;
-      }
-      .profile-popup-socials a.instagram {
-        border-color: #e1306c;
-        color: #e1306c;
-      }
-      .profile-popup-socials a.instagram:hover {
-        background: #e1306c;
-        color: white;
-      }
-      .profile-popup-socials a.linkedin {
-        border-color: #0077b5;
-        color: #0077b5;
-      }
-      .profile-popup-socials a.linkedin:hover {
-        background: #0077b5;
-        color: white;
-      }
-      .profile-popup-socials a.github {
-        border-color: #333;
-        color: #333;
-      }
-      .profile-popup-socials a.github:hover {
-        background: #333;
-        color: white;
-      }
-      .profile-popup-socials a.email {
-        border-color: #ea4335;
-        color: #ea4335;
-      }
-      .profile-popup-socials a.email:hover {
-        background: #ea4335;
-        color: white;
-      }
-      .profile-popup-socials a:hover {
-        transform: scale(1.1);
-      }
-      .profile-popup-close {
-        position: absolute;
-        top: -50px;
-        right: -20px;
-        font-size: 32px;
-        color: white;
-        cursor: pointer;
-        width: 44px;
-        height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
-        transition: all 0.3s ease;
-      }
-      .profile-popup-close:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: rotate(90deg);
-      }
-      @media (max-width: 640px) {
-        .profile-popup-img {
-          width: 200px;
-          height: 200px;
-        }
-        .profile-popup-name {
-          font-size: 20px;
-        }
-        .profile-popup-close {
-          top: -40px;
-          right: 0;
-        }
-      }
-      @media (max-width: 640px) {
-        .lightbox-nav {
-          width: 40px;
-          height: 40px;
-          font-size: 20px;
-        }
-        .lightbox-prev {
-          left: 10px;
-        }
-        .lightbox-next {
-          right: 10px;
-        }
-        .lightbox-title {
-          font-size: 14px;
-        }
-      }
-
-      /* Scroll Animation Styles */
-      .scroll-animate {
-        opacity: 0;
-        transform: translateY(50px);
-        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      .scroll-animate.animate-left {
-        transform: translateX(-50px);
-      }
-      .scroll-animate.animate-right {
-        transform: translateX(50px);
-      }
-      .scroll-animate.animate-scale {
-        transform: scale(0.8);
-      }
-      .scroll-animate.animate-fade {
-        transform: translateY(0);
-      }
-      .scroll-animate.visible {
-        opacity: 1;
-        transform: translateY(0) translateX(0) scale(1);
-      }
-      /* Staggered animation delays for grid items */
-      .scroll-animate.delay-1 {
-        transition-delay: 0.1s;
-      }
-      .scroll-animate.delay-2 {
-        transition-delay: 0.2s;
-      }
-      .scroll-animate.delay-3 {
-        transition-delay: 0.3s;
-      }
-      .scroll-animate.delay-4 {
-        transition-delay: 0.4s;
-      }
-      .scroll-animate.delay-5 {
-        transition-delay: 0.5s;
-      }
-      .scroll-animate.delay-6 {
-        transition-delay: 0.6s;
-      }
-    </style>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body class="bg-gray-50 font-sans">
     <!-- Navigation -->
@@ -716,6 +372,7 @@
               data-name="Indah Nirmala"
               data-role="Sekretaris"
               data-instagram="https://www.instagram.com/indahnir__/?hl=en"
+              data-linkedin="#"
               data-github="#"
               data-email="indah.nirmala@email.com"
             >
@@ -746,6 +403,14 @@
               <a
                 href="#"
                 target="_blank"
+                class="text-blue-600 hover:text-blue-700 transition"
+                title="LinkedIn"
+              >
+                <i class="fab fa-linkedin text-lg"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
                 class="text-gray-700 hover:text-gray-900 transition"
                 title="GitHub"
               >
@@ -761,7 +426,8 @@
               data-name="Dewi Puspa"
               data-role="Bendahara"
               data-instagram="https://www.instagram.com/dewiipnn?igsh=MWhhajlwNmNmY3pyMA=="
-              data-github="#"
+              data-linkedin="https://www.linkedin.com/in/dewi-puspa-ningrum-3ba71132b/"
+              data-github="https://github.com/dewiipnn"
               data-email="dewi.puspa@email.com"
             >
               <img
@@ -781,7 +447,7 @@
             </p>
             <div class="flex justify-center items-center gap-3 mt-2">
               <a
-                href="https://www.instagram.com/dewiipnn"
+                href="https://www.instagram.com/dewiipnn?igsh=MWhhajlwNmNmY3pyMA=="
                 target="_blank"
                 class="text-pink-500 hover:text-pink-600 transition"
                 title="Instagram"
@@ -789,7 +455,15 @@
                 <i class="fab fa-instagram text-lg"></i>
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/dewi-puspa-ningrum-3ba71132b/"
+                target="_blank"
+                class="text-blue-600 hover:text-blue-700 transition"
+                title="LinkedIn"
+              >
+                <i class="fab fa-linkedin text-lg"></i>
+              </a>
+              <a
+                href="https://github.com/dewiipnn"
                 target="_blank"
                 class="text-gray-700 hover:text-gray-900 transition"
                 title="GitHub"
@@ -810,8 +484,9 @@
               class="w-16 h-16 rounded-full mx-auto mb-3 overflow-hidden border-2 border-violet-200 profile-img"
               data-name="Fajri Yanuar"
               data-role="Kadep Akademik"
-              data-instagram="https://instagram.com/"
-              data-github="#"
+              data-instagram="https://www.instagram.com/leegowns?igsh=M3VxMHAzaHZubTg5"
+              data-linkedin="https://www.linkedin.com/in/fajri-yanuar-shiddiq-juanda-3054502b8"
+              data-github="https://github.com/fajrijuanda"
               data-email="fajri.yanuar@email.com"
             >
               <img
@@ -831,7 +506,7 @@
             </p>
             <div class="flex justify-center items-center gap-2 mt-2">
               <a
-                href="https://instagram.com/"
+                href="https://www.instagram.com/leegowns?igsh=M3VxMHAzaHZubTg5"
                 target="_blank"
                 class="text-pink-500 hover:text-pink-600 transition"
                 title="Instagram"
@@ -839,7 +514,15 @@
                 <i class="fab fa-instagram"></i>
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/fajri-yanuar-shiddiq-juanda-3054502b8"
+                target="_blank"
+                class="text-blue-600 hover:text-blue-700 transition"
+                title="LinkedIn"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a
+                href="https://github.com/fajrijuanda"
                 target="_blank"
                 class="text-gray-700 hover:text-gray-900 transition"
                 title="GitHub"
@@ -858,6 +541,7 @@
               data-name="Jibrail"
               data-role="Kadep Ristek"
               data-instagram="https://www.instagram.com/jibrailadji/?hl=en"
+              data-linkedin="#"
               data-github="#"
               data-email="jibrail@email.com"
             >
@@ -888,6 +572,14 @@
               <a
                 href="#"
                 target="_blank"
+                class="text-blue-600 hover:text-blue-700 transition"
+                title="LinkedIn"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
                 class="text-gray-700 hover:text-gray-900 transition"
                 title="GitHub"
               >
@@ -905,6 +597,7 @@
               data-name="Nova Khairani"
               data-role="Kadep Humas"
               data-instagram="https://instagram.com/"
+              data-linkedin="#"
               data-github="#"
               data-email="nova.khairani@email.com"
             >
@@ -935,6 +628,14 @@
               <a
                 href="#"
                 target="_blank"
+                class="text-blue-600 hover:text-blue-700 transition"
+                title="LinkedIn"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
                 class="text-gray-700 hover:text-gray-900 transition"
                 title="GitHub"
               >
@@ -952,6 +653,7 @@
               data-name="Fadel"
               data-role="Kadep MIBA"
               data-instagram="https://instagram.com/"
+              data-linkedin="#"
               data-github="#"
               data-email="fadel@email.com"
             >
@@ -982,6 +684,14 @@
               <a
                 href="#"
                 target="_blank"
+                class="text-blue-600 hover:text-blue-700 transition"
+                title="LinkedIn"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
                 class="text-gray-700 hover:text-gray-900 transition"
                 title="GitHub"
               >
@@ -999,6 +709,7 @@
               data-name="Bisma"
               data-role="Kadep KWU"
               data-instagram="https://instagram.com/"
+              data-linkedin="#"
               data-github="#"
               data-email="bisma@email.com"
             >
@@ -1025,6 +736,14 @@
                 title="Instagram"
               >
                 <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                class="text-blue-600 hover:text-blue-700 transition"
+                title="LinkedIn"
+              >
+                <i class="fab fa-linkedin"></i>
               </a>
               <a
                 href="#"
@@ -2314,150 +2033,6 @@
       </div>
     </div>
 
-    <!-- Mobile Menu Script -->
-    <script>
-      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-
-      mobileMenuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-
-      // Close mobile menu when clicking a link
-      const mobileLinks = mobileMenu.querySelectorAll("a");
-      mobileLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden");
-        });
-      });
-
-      // Navbar scroll effect
-      window.addEventListener("scroll", () => {
-        const nav = document.querySelector("nav");
-        if (window.scrollY > 50) {
-          nav.classList.add("shadow-lg");
-        } else {
-          nav.classList.remove("shadow-lg");
-        }
-      });
-
-      // Lightbox Gallery Script
-      const lightbox = document.getElementById("lightbox");
-      const lightboxImg = document.getElementById("lightbox-img");
-      const lightboxTitle = document.getElementById("lightbox-title");
-      const lightboxCounter = document.getElementById("lightbox-counter");
-      const lightboxClose = document.getElementById("lightbox-close");
-      const lightboxPrev = document.getElementById("lightbox-prev");
-      const lightboxNext = document.getElementById("lightbox-next");
-
-      let currentGallery = [];
-      let currentIndex = 0;
-
-      // Get all gallery images
-      const galleryImages = document.querySelectorAll(".gallery-img");
-
-      galleryImages.forEach((img) => {
-        img.addEventListener("click", function () {
-          const galleryName = this.dataset.gallery;
-          const title = this.dataset.title;
-
-          // Get all images from the same gallery
-          currentGallery = Array.from(
-            document.querySelectorAll(`img[data-gallery="${galleryName}"]`)
-          );
-          currentIndex = currentGallery.indexOf(this);
-
-          openLightbox(title);
-        });
-      });
-
-      function openLightbox(title) {
-        lightbox.classList.add("active");
-        document.body.style.overflow = "hidden";
-        updateLightbox(title);
-      }
-
-      function closeLightbox() {
-        lightbox.classList.remove("active");
-        document.body.style.overflow = "";
-      }
-
-      function updateLightbox(title) {
-        const img = currentGallery[currentIndex];
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightboxTitle.textContent = title || img.dataset.title;
-        lightboxCounter.textContent = `${currentIndex + 1} / ${
-          currentGallery.length
-        }`;
-      }
-
-      function nextImage() {
-        currentIndex = (currentIndex + 1) % currentGallery.length;
-        updateLightbox();
-      }
-
-      function prevImage() {
-        currentIndex =
-          (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-        updateLightbox();
-      }
-
-      // Event Listeners
-      lightboxClose.addEventListener("click", closeLightbox);
-      lightboxNext.addEventListener("click", nextImage);
-      lightboxPrev.addEventListener("click", prevImage);
-
-      // Close on background click
-      lightbox.addEventListener("click", function (e) {
-        if (
-          e.target === lightbox ||
-          e.target.classList.contains("lightbox-body")
-        ) {
-          closeLightbox();
-        }
-      });
-
-      // Keyboard navigation
-      document.addEventListener("keydown", function (e) {
-        if (!lightbox.classList.contains("active")) return;
-
-        if (e.key === "Escape") {
-          closeLightbox();
-        } else if (e.key === "ArrowRight") {
-          nextImage();
-        } else if (e.key === "ArrowLeft") {
-          prevImage();
-        }
-      });
-
-      // Touch/Swipe support for mobile
-      let touchStartX = 0;
-      let touchEndX = 0;
-
-      lightbox.addEventListener("touchstart", function (e) {
-        touchStartX = e.changedTouches[0].screenX;
-      });
-
-      lightbox.addEventListener("touchend", function (e) {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-      });
-
-      function handleSwipe() {
-        const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
-
-        if (Math.abs(diff) > swipeThreshold) {
-          if (diff > 0) {
-            nextImage(); // Swipe left = next
-          } else {
-            prevImage(); // Swipe right = prev
-          }
-        }
-      }
-    </script>
-
     <!-- Profile Photo Popup Modal -->
     <div id="profile-popup" class="profile-popup">
       <div class="profile-popup-content">
@@ -2499,168 +2074,7 @@
       </div>
     </div>
 
-    <script>
-      // Profile Photo Popup Script
-      const profilePopup = document.getElementById("profile-popup");
-      const profilePopupImg = document.getElementById("profile-popup-img");
-      const profilePopupName = document.getElementById("profile-popup-name");
-      const profilePopupRole = document.getElementById("profile-popup-role");
-      const profilePopupClose = document.getElementById("profile-popup-close");
-      const popupInstagram = document.getElementById("popup-instagram");
-      const popupLinkedin = document.getElementById("popup-linkedin");
-      const popupGithub = document.getElementById("popup-github");
-      const popupEmail = document.getElementById("popup-email");
-
-      // Get all profile images
-      const profileImages = document.querySelectorAll(".profile-img");
-
-      profileImages.forEach((container) => {
-        container.addEventListener("click", function () {
-          const img = this.querySelector("img");
-          const name = this.dataset.name || img.alt;
-          const role = this.dataset.role || "";
-
-          // Get social media links from data attributes or find nearby links
-          const instagram = this.dataset.instagram || "#";
-          const linkedin = this.dataset.linkedin || "#";
-          const github = this.dataset.github || "#";
-          const email = this.dataset.email || "";
-
-          profilePopupImg.src = img.src;
-          profilePopupImg.alt = name;
-          profilePopupName.textContent = name;
-          profilePopupRole.textContent = role;
-
-          // Set social media links
-          popupInstagram.href = instagram;
-          popupLinkedin.href = linkedin;
-          popupGithub.href = github;
-          popupEmail.href = email ? "mailto:" + email : "#";
-
-          // Show/hide social icons based on availability
-          popupInstagram.style.display =
-            instagram && instagram !== "#" ? "flex" : "none";
-          popupLinkedin.style.display =
-            linkedin && linkedin !== "#" ? "flex" : "none";
-          popupGithub.style.display = "flex"; // Always show GitHub
-          popupEmail.style.display = email ? "flex" : "none";
-
-          // If no social links, hide the container but show placeholder
-          const socialsContainer = document.getElementById(
-            "profile-popup-socials"
-          );
-          const hasAnySocial =
-            (instagram && instagram !== "#") ||
-            (linkedin && linkedin !== "#") ||
-            email;
-          if (!hasAnySocial) {
-            // Show all with # as placeholder
-            popupInstagram.style.display = "flex";
-            popupLinkedin.style.display = "flex";
-            popupEmail.style.display = "none";
-          }
-          // GitHub always visible
-          popupGithub.style.display = "flex";
-
-          profilePopup.classList.add("active");
-          document.body.style.overflow = "hidden";
-        });
-      });
-
-      function closeProfilePopup() {
-        profilePopup.classList.remove("active");
-        document.body.style.overflow = "";
-      }
-
-      // Close button
-      profilePopupClose.addEventListener("click", closeProfilePopup);
-
-      // Close on background click
-      profilePopup.addEventListener("click", function (e) {
-        if (e.target === profilePopup) {
-          closeProfilePopup();
-        }
-      });
-
-      // Close on Escape key
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" && profilePopup.classList.contains("active")) {
-          closeProfilePopup();
-        }
-      });
-    </script>
-
-    <script>
-      // Scroll Animation using Intersection Observer
-      document.addEventListener("DOMContentLoaded", function () {
-        // Add scroll-animate class to elements
-        const animateElements = [
-          // Section headers
-          {
-            selector: "section .text-center.mb-16, section .text-center.mb-10",
-            animation: "animate-fade",
-          },
-          // Cards and grid items
-          { selector: ".card-hover", animation: "" },
-          // Visi Misi boxes
-          {
-            selector: ".gradient-bg.rounded-2xl, .bg-gray-50.rounded-2xl",
-            animation: "",
-          },
-          // Department cards
-          { selector: ".bg-white.rounded-xl.shadow-md", animation: "" },
-          // Gallery images
-          { selector: ".gallery-img", animation: "animate-scale" },
-          // Tables
-          { selector: "table", animation: "animate-fade" },
-          // Grid containers children
-          { selector: ".grid > div", animation: "" },
-        ];
-
-        // Apply scroll-animate class to all target elements
-        animateElements.forEach((item) => {
-          document.querySelectorAll(item.selector).forEach((el, index) => {
-            if (!el.classList.contains("scroll-animate")) {
-              el.classList.add("scroll-animate");
-              if (item.animation) {
-                el.classList.add(item.animation);
-              }
-              // Add staggered delay for grid items (max 6)
-              const delayClass = "delay-" + ((index % 6) + 1);
-              el.classList.add(delayClass);
-            }
-          });
-        });
-
-        // Create Intersection Observer
-        const observerOptions = {
-          root: null,
-          rootMargin: "0px 0px -50px 0px",
-          threshold: 0.1,
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            }
-          });
-        }, observerOptions);
-
-        // Observe all scroll-animate elements
-        document.querySelectorAll(".scroll-animate").forEach((el) => {
-          observer.observe(el);
-        });
-
-        // Make elements above the fold visible immediately
-        const viewportHeight = window.innerHeight;
-        document.querySelectorAll(".scroll-animate").forEach((el) => {
-          const rect = el.getBoundingClientRect();
-          if (rect.top < viewportHeight) {
-            el.classList.add("visible");
-          }
-        });
-      });
-    </script>
+    <!-- Main JavaScript -->
+    <script src="js/script.js"></script>
   </body>
 </html>
