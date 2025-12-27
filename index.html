@@ -234,36 +234,46 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 20px;
+        font-size: 22px;
         transition: all 0.3s ease;
         text-decoration: none;
+        border: 2px solid;
+        background: transparent;
       }
       .profile-popup-socials a.instagram {
-        background: linear-gradient(
-          45deg,
-          #f09433,
-          #e6683c,
-          #dc2743,
-          #cc2366,
-          #bc1888
-        );
+        border-color: #e1306c;
+        color: #e1306c;
+      }
+      .profile-popup-socials a.instagram:hover {
+        background: #e1306c;
         color: white;
       }
       .profile-popup-socials a.linkedin {
+        border-color: #0077b5;
+        color: #0077b5;
+      }
+      .profile-popup-socials a.linkedin:hover {
         background: #0077b5;
         color: white;
       }
       .profile-popup-socials a.github {
+        border-color: #333;
+        color: #333;
+      }
+      .profile-popup-socials a.github:hover {
         background: #333;
         color: white;
       }
       .profile-popup-socials a.email {
+        border-color: #ea4335;
+        color: #ea4335;
+      }
+      .profile-popup-socials a.email:hover {
         background: #ea4335;
         color: white;
       }
       .profile-popup-socials a:hover {
-        transform: scale(1.15);
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        transform: scale(1.1);
       }
       .profile-popup-close {
         position: absolute;
@@ -313,6 +323,48 @@
         .lightbox-title {
           font-size: 14px;
         }
+      }
+
+      /* Scroll Animation Styles */
+      .scroll-animate {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .scroll-animate.animate-left {
+        transform: translateX(-50px);
+      }
+      .scroll-animate.animate-right {
+        transform: translateX(50px);
+      }
+      .scroll-animate.animate-scale {
+        transform: scale(0.8);
+      }
+      .scroll-animate.animate-fade {
+        transform: translateY(0);
+      }
+      .scroll-animate.visible {
+        opacity: 1;
+        transform: translateY(0) translateX(0) scale(1);
+      }
+      /* Staggered animation delays for grid items */
+      .scroll-animate.delay-1 {
+        transition-delay: 0.1s;
+      }
+      .scroll-animate.delay-2 {
+        transition-delay: 0.2s;
+      }
+      .scroll-animate.delay-3 {
+        transition-delay: 0.3s;
+      }
+      .scroll-animate.delay-4 {
+        transition-delay: 0.4s;
+      }
+      .scroll-animate.delay-5 {
+        transition-delay: 0.5s;
+      }
+      .scroll-animate.delay-6 {
+        transition-delay: 0.6s;
       }
     </style>
   </head>
@@ -664,6 +716,7 @@
               data-name="Indah Nirmala"
               data-role="Sekretaris"
               data-instagram="https://www.instagram.com/indahnir__/?hl=en"
+              data-github="#"
               data-email="indah.nirmala@email.com"
             >
               <img
@@ -681,13 +734,24 @@
             <p class="text-gray-500 text-sm mt-2">
               <i class="fas fa-envelope mr-2"></i>indah.nirmala@email.com
             </p>
-            <a
-              href="https://www.instagram.com/indahnir__/?hl=en"
-              target="_blank"
-              class="inline-flex items-center gap-1 text-gray-500 text-sm mt-1 hover:text-pink-500 transition"
-            >
-              <i class="fab fa-instagram text-pink-500"></i>@indah.nirmala
-            </a>
+            <div class="flex justify-center items-center gap-3 mt-2">
+              <a
+                href="https://www.instagram.com/indahnir__/?hl=en"
+                target="_blank"
+                class="text-pink-500 hover:text-pink-600 transition"
+                title="Instagram"
+              >
+                <i class="fab fa-instagram text-lg"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                class="text-gray-700 hover:text-gray-900 transition"
+                title="GitHub"
+              >
+                <i class="fab fa-github text-lg"></i>
+              </a>
+            </div>
           </div>
           <div
             class="bg-white rounded-2xl shadow-lg p-6 text-center card-hover"
@@ -696,7 +760,8 @@
               class="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden border-4 border-emerald-200 profile-img"
               data-name="Dewi Puspa"
               data-role="Bendahara"
-              data-instagram="https://instagram.com/"
+              data-instagram="https://www.instagram.com/dewiipnn?igsh=MWhhajlwNmNmY3pyMA=="
+              data-github="#"
               data-email="dewi.puspa@email.com"
             >
               <img
@@ -714,13 +779,24 @@
             <p class="text-gray-500 text-sm mt-2">
               <i class="fas fa-envelope mr-2"></i>dewi.puspa@email.com
             </p>
-            <a
-              href="https://instagram.com/"
-              target="_blank"
-              class="inline-flex items-center gap-1 text-gray-500 text-sm mt-1 hover:text-pink-500 transition"
-            >
-              <i class="fab fa-instagram text-pink-500"></i>@dewi.puspa
-            </a>
+            <div class="flex justify-center items-center gap-3 mt-2">
+              <a
+                href="https://www.instagram.com/dewiipnn"
+                target="_blank"
+                class="text-pink-500 hover:text-pink-600 transition"
+                title="Instagram"
+              >
+                <i class="fab fa-instagram text-lg"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                class="text-gray-700 hover:text-gray-900 transition"
+                title="GitHub"
+              >
+                <i class="fab fa-github text-lg"></i>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -735,6 +811,7 @@
               data-name="Fajri Yanuar"
               data-role="Kadep Akademik"
               data-instagram="https://instagram.com/"
+              data-github="#"
               data-email="fajri.yanuar@email.com"
             >
               <img
@@ -752,13 +829,24 @@
             <p class="text-gray-500 text-xs mt-2">
               <i class="fas fa-envelope mr-1"></i>fajri.yanuar@email.com
             </p>
-            <a
-              href="https://instagram.com/"
-              target="_blank"
-              class="inline-flex items-center gap-1 text-gray-500 text-xs mt-1 hover:text-pink-500 transition"
-            >
-              <i class="fab fa-instagram text-pink-500"></i>@fajri.yanuar
-            </a>
+            <div class="flex justify-center items-center gap-2 mt-2">
+              <a
+                href="https://instagram.com/"
+                target="_blank"
+                class="text-pink-500 hover:text-pink-600 transition"
+                title="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                class="text-gray-700 hover:text-gray-900 transition"
+                title="GitHub"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
           </div>
 
           <!-- Kadep Riset dan Teknologi -->
@@ -770,6 +858,7 @@
               data-name="Jibrail"
               data-role="Kadep Ristek"
               data-instagram="https://www.instagram.com/jibrailadji/?hl=en"
+              data-github="#"
               data-email="jibrail@email.com"
             >
               <img
@@ -787,13 +876,24 @@
             <p class="text-gray-500 text-xs mt-2">
               <i class="fas fa-envelope mr-1"></i>jibrail@email.com
             </p>
-            <a
-              href="https://www.instagram.com/jibrailadji/?hl=en"
-              target="_blank"
-              class="inline-flex items-center gap-1 text-gray-500 text-xs mt-1 hover:text-pink-500 transition"
-            >
-              <i class="fab fa-instagram text-pink-500"></i>@jibrail
-            </a>
+            <div class="flex justify-center items-center gap-2 mt-2">
+              <a
+                href="https://www.instagram.com/jibrailadji/?hl=en"
+                target="_blank"
+                class="text-pink-500 hover:text-pink-600 transition"
+                title="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                class="text-gray-700 hover:text-gray-900 transition"
+                title="GitHub"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
           </div>
 
           <!-- Kadep Humas -->
@@ -805,6 +905,7 @@
               data-name="Nova Khairani"
               data-role="Kadep Humas"
               data-instagram="https://instagram.com/"
+              data-github="#"
               data-email="nova.khairani@email.com"
             >
               <img
@@ -822,13 +923,24 @@
             <p class="text-gray-500 text-xs mt-2">
               <i class="fas fa-envelope mr-1"></i>nova.khairani@email.com
             </p>
-            <a
-              href="https://instagram.com/"
-              target="_blank"
-              class="inline-flex items-center gap-1 text-gray-500 text-xs mt-1 hover:text-pink-500 transition"
-            >
-              <i class="fab fa-instagram text-pink-500"></i>@nova.khairani
-            </a>
+            <div class="flex justify-center items-center gap-2 mt-2">
+              <a
+                href="https://instagram.com/"
+                target="_blank"
+                class="text-pink-500 hover:text-pink-600 transition"
+                title="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                class="text-gray-700 hover:text-gray-900 transition"
+                title="GitHub"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
           </div>
 
           <!-- Kadep MIBA -->
@@ -840,6 +952,7 @@
               data-name="Fadel"
               data-role="Kadep MIBA"
               data-instagram="https://instagram.com/"
+              data-github="#"
               data-email="fadel@email.com"
             >
               <img
@@ -857,13 +970,24 @@
             <p class="text-gray-500 text-xs mt-2">
               <i class="fas fa-envelope mr-1"></i>fadel@email.com
             </p>
-            <a
-              href="https://instagram.com/"
-              target="_blank"
-              class="inline-flex items-center gap-1 text-gray-500 text-xs mt-1 hover:text-pink-500 transition"
-            >
-              <i class="fab fa-instagram text-pink-500"></i>@fadel
-            </a>
+            <div class="flex justify-center items-center gap-2 mt-2">
+              <a
+                href="https://instagram.com/"
+                target="_blank"
+                class="text-pink-500 hover:text-pink-600 transition"
+                title="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                class="text-gray-700 hover:text-gray-900 transition"
+                title="GitHub"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
           </div>
 
           <!-- Kadep KWU -->
@@ -875,6 +999,7 @@
               data-name="Bisma"
               data-role="Kadep KWU"
               data-instagram="https://instagram.com/"
+              data-github="#"
               data-email="bisma@email.com"
             >
               <img
@@ -892,13 +1017,24 @@
             <p class="text-gray-500 text-xs mt-2">
               <i class="fas fa-envelope mr-1"></i>bisma@email.com
             </p>
-            <a
-              href="https://instagram.com/"
-              target="_blank"
-              class="inline-flex items-center gap-1 text-gray-500 text-xs mt-1 hover:text-pink-500 transition"
-            >
-              <i class="fab fa-instagram text-pink-500"></i>@bisma
-            </a>
+            <div class="flex justify-center items-center gap-2 mt-2">
+              <a
+                href="https://instagram.com/"
+                target="_blank"
+                class="text-pink-500 hover:text-pink-600 transition"
+                title="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                class="text-gray-700 hover:text-gray-900 transition"
+                title="GitHub"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -2406,8 +2542,7 @@
             instagram && instagram !== "#" ? "flex" : "none";
           popupLinkedin.style.display =
             linkedin && linkedin !== "#" ? "flex" : "none";
-          popupGithub.style.display =
-            github && github !== "#" ? "flex" : "none";
+          popupGithub.style.display = "flex"; // Always show GitHub
           popupEmail.style.display = email ? "flex" : "none";
 
           // If no social links, hide the container but show placeholder
@@ -2417,15 +2552,15 @@
           const hasAnySocial =
             (instagram && instagram !== "#") ||
             (linkedin && linkedin !== "#") ||
-            (github && github !== "#") ||
             email;
           if (!hasAnySocial) {
             // Show all with # as placeholder
             popupInstagram.style.display = "flex";
             popupLinkedin.style.display = "flex";
-            popupGithub.style.display = "flex";
             popupEmail.style.display = "none";
           }
+          // GitHub always visible
+          popupGithub.style.display = "flex";
 
           profilePopup.classList.add("active");
           document.body.style.overflow = "hidden";
@@ -2452,6 +2587,79 @@
         if (e.key === "Escape" && profilePopup.classList.contains("active")) {
           closeProfilePopup();
         }
+      });
+    </script>
+
+    <script>
+      // Scroll Animation using Intersection Observer
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add scroll-animate class to elements
+        const animateElements = [
+          // Section headers
+          {
+            selector: "section .text-center.mb-16, section .text-center.mb-10",
+            animation: "animate-fade",
+          },
+          // Cards and grid items
+          { selector: ".card-hover", animation: "" },
+          // Visi Misi boxes
+          {
+            selector: ".gradient-bg.rounded-2xl, .bg-gray-50.rounded-2xl",
+            animation: "",
+          },
+          // Department cards
+          { selector: ".bg-white.rounded-xl.shadow-md", animation: "" },
+          // Gallery images
+          { selector: ".gallery-img", animation: "animate-scale" },
+          // Tables
+          { selector: "table", animation: "animate-fade" },
+          // Grid containers children
+          { selector: ".grid > div", animation: "" },
+        ];
+
+        // Apply scroll-animate class to all target elements
+        animateElements.forEach((item) => {
+          document.querySelectorAll(item.selector).forEach((el, index) => {
+            if (!el.classList.contains("scroll-animate")) {
+              el.classList.add("scroll-animate");
+              if (item.animation) {
+                el.classList.add(item.animation);
+              }
+              // Add staggered delay for grid items (max 6)
+              const delayClass = "delay-" + ((index % 6) + 1);
+              el.classList.add(delayClass);
+            }
+          });
+        });
+
+        // Create Intersection Observer
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px 0px -50px 0px",
+          threshold: 0.1,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        }, observerOptions);
+
+        // Observe all scroll-animate elements
+        document.querySelectorAll(".scroll-animate").forEach((el) => {
+          observer.observe(el);
+        });
+
+        // Make elements above the fold visible immediately
+        const viewportHeight = window.innerHeight;
+        document.querySelectorAll(".scroll-animate").forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < viewportHeight) {
+            el.classList.add("visible");
+          }
+        });
       });
     </script>
   </body>
