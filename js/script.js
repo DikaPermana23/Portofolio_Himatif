@@ -169,33 +169,36 @@ profileImages.forEach((container) => {
     profilePopupRole.textContent = role;
 
     // Set social media links
-    popupInstagram.href = instagram;
-    popupLinkedin.href = linkedin;
-    popupGithub.href = github;
+    popupInstagram.href = instagram && instagram !== "#" ? instagram : "#";
+    popupLinkedin.href = linkedin && linkedin !== "#" ? linkedin : "#";
+    popupGithub.href = github && github !== "#" ? github : "#";
     popupEmail.href = email ? "mailto:" + email : "#";
 
-    // Show/hide social icons based on availability
+    // Ensure clicking the email opens a new tab/window and set rel for safety
+    popupEmail.target = email ? "_blank" : "";
+    popupEmail.rel = email ? "noopener noreferrer" : "";
+    // Add safe rel for external links when they exist
+    popupInstagram.rel = instagram && instagram !== "#" ? "noopener noreferrer" : "";
+    popupLinkedin.rel = linkedin && linkedin !== "#" ? "noopener noreferrer" : "";
+    popupGithub.rel = github && github !== "#" ? "noopener noreferrer" : "";
+
+    // Show/hide social icons based on availability (only show icons that exist)
     popupInstagram.style.display =
       instagram && instagram !== "#" ? "flex" : "none";
     popupLinkedin.style.display =
       linkedin && linkedin !== "#" ? "flex" : "none";
-    popupGithub.style.display = "flex"; // Always show GitHub
+    popupGithub.style.display =
+      github && github !== "#" ? "flex" : "none";
     popupEmail.style.display = email ? "flex" : "none";
 
-    // If no social links, hide the container but show placeholder
+    // If none of the social links exist, hide the socials container
     const socialsContainer = document.getElementById("profile-popup-socials");
     const hasAnySocial =
       (instagram && instagram !== "#") ||
       (linkedin && linkedin !== "#") ||
+      (github && github !== "#") ||
       email;
-    if (!hasAnySocial) {
-      // Show all with # as placeholder
-      popupInstagram.style.display = "flex";
-      popupLinkedin.style.display = "flex";
-      popupEmail.style.display = "none";
-    }
-    // GitHub always visible
-    popupGithub.style.display = "flex";
+    socialsContainer.style.display = hasAnySocial ? "flex" : "none";
 
     profilePopup.classList.add("active");
     document.body.style.overflow = "hidden";
