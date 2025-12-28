@@ -161,7 +161,7 @@ profileImages.forEach((container) => {
     const instagram = this.dataset.instagram || "#";
     const linkedin = this.dataset.linkedin || "#";
     const github = this.dataset.github || "#";
-    const email = this.dataset.email || "";
+    const copemail = this.dataset.email || "";
 
     profilePopupImg.src = img.src;
     profilePopupImg.alt = name;
